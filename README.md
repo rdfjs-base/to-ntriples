@@ -4,4 +4,4 @@
 
 [![npm version](https://img.shields.io/npm/v/@rdfjs/to-ntriples.svg)](https://www.npmjs.com/package/@rdfjs/to-ntriples)
 
-Converts [RDFJS D](http://rdf.js.org/) Terms and Quads to N-Triple strings.
+Converts [RDFJS](http://rdf.js.org/) Terms and Quads to N-Triple strings.
