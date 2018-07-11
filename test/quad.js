@@ -1,36 +1,36 @@
 /* global describe, it */
 
 const assert = require('assert')
-const quadToNTriples = require('../lib/quadToNTriples')
+const quad = require('../lib/quad')
 const rdf = require('@rdfjs/data-model')
 
-describe('quadToNTriples', () => {
+describe('quad', () => {
   it('should be a function', () => {
-    assert.equal(typeof quadToNTriples, 'function')
+    assert.equal(typeof quad, 'function')
   })
 
   it('should convert a Quad to a N-Triples string', () => {
-    const quad = rdf.quad(
+    const q = rdf.quad(
       rdf.blankNode(),
       rdf.namedNode('http://example.org/predicate'),
       rdf.literal('object'),
       rdf.namedNode('http://example.org/graph')
     )
 
-    const expected = `_:${quad.subject.value} <${quad.predicate.value}> "${quad.object.value}" <${quad.graph.value}> .`
+    const expected = `_:${q.subject.value} <${q.predicate.value}> "${q.object.value}" <${q.graph.value}> .`
 
-    assert.equal(quadToNTriples(quad), expected)
+    assert.equal(quad(q), expected)
   })
 
   it('should convert a Quad with Default Graph to a N-Triples string', () => {
-    const quad = rdf.quad(
+    const q = rdf.quad(
       rdf.blankNode(),
       rdf.namedNode('http://example.org/predicate'),
       rdf.literal('object')
     )
 
-    const expected = `_:${quad.subject.value} <${quad.predicate.value}> "${quad.object.value}" .`
+    const expected = `_:${q.subject.value} <${q.predicate.value}> "${q.object.value}" .`
 
-    assert.equal(quadToNTriples(quad), expected)
+    assert.equal(quad(q), expected)
   })
 })
