@@ -1,7 +1,7 @@
-const quadToNTriples = require('./lib/quadToNTriples')
-const termToNTriples = require('./lib/termToNTriples')
+const quad = require('./lib/quad')
+const term = require('./lib/term')
 
 module.exports = {
-  quadToNTriples,
-  termToNTriples
+  quadToNTriples: quad,
+  termToNTriples: term
 }
