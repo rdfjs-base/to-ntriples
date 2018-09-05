@@ -2,6 +2,6 @@
 
 [![Build Status](https://travis-ci.org/rdfjs/to-ntriples.svg?branch=master)](https://travis-ci.org/rdfjs/to-ntriples)
 
-[![npm version](https://img.shields.io/npm/v/@rdfjs/to-ntriples.svg)](https://www.npmjs.com/package/@rdfjs/to-ntriples)
+[![npm version](https://img.shields.io/npm/v/@rdfjs/to-ntriples.svg)](https://www.npmjs.com/package/@rdfjs/to-ntriples) [![Greenkeeper badge](https://badges.greenkeeper.io/rdfjs/to-ntriples.svg)](https://greenkeeper.io/)
 
 Converts [RDFJS](http://rdf.js.org/) Terms and Quads to N-Triple strings.
