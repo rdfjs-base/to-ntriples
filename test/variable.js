@@ -10,7 +10,7 @@ describe('variable', () => {
   })
 
   it('should convert a Variable to a N-Triples string', () => {
-    const v = rdf.variable()
+    const v = rdf.variable('test')
 
     assert.equal(variable(v), `?${v.value}`)
   })
