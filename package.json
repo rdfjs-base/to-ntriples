@@ -1,6 +1,6 @@
 {
   "name": "@rdfjs/to-ntriples",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Converts RDFJS Terms and Quads to N-Triple strings",
   "main": "index.js",
   "scripts": {
