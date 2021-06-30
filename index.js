@@ -1,5 +1,5 @@
-const quad = require('./lib/quad')
-const term = require('./lib/term')
+const quad = require('./lib/quad.js')
+const term = require('./lib/term.js')
 
 module.exports = {
   quadToNTriples: quad,
