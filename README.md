@@ -1,7 +1,5 @@
 # @rdfjs/to-ntriples
-
-[![Build Status](https://travis-ci.org/rdfjs/to-ntriples.svg?branch=master)](https://travis-ci.org/rdfjs/to-ntriples)
-
+[![build status](https://img.shields.io/github/actions/workflow/status/rdfjs-base/to-ntriples/test.yaml?branch=master)](https://github.com/rdfjs-base/to-ntriples/actions/workflows/test.yaml)
 [![npm version](https://img.shields.io/npm/v/@rdfjs/to-ntriples.svg)](https://www.npmjs.com/package/@rdfjs/to-ntriples)
 
 Converts [RDF/JS](http://rdf.js.org/) Terms, Quads and Datasets to N-Triple strings. 
@@ -9,8 +7,8 @@ Converts [RDF/JS](http://rdf.js.org/) Terms, Quads and Datasets to N-Triple stri
 ## Examples
 
 ```javascript
-const rdf = require('@rdfjs/data-model')
-const toNT = require('@rdfjs/to-ntriples')
+import rdf from '@rdfjs/data-model'
+import toNT from '@rdfjs/to-ntriples'
 
 // convert a Term/Literal to a N-Triple string (output: "example"@en)
 console.log(toNT(rdf.literal('example', 'en')))

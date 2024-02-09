@@ -1,7 +1,7 @@
-const { strictEqual, throws } = require('assert')
-const rdf = require('@rdfjs/data-model')
-const { describe, it } = require('mocha')
-const toNT = require('../index.js')
+import { strictEqual, throws } from 'node:assert'
+import rdf from '@rdfjs/data-model'
+import { describe, it } from 'mocha'
+import toNT from '../index.js'
 
 describe('@rdfjs/to-ntriples', () => {
   it('should be a function', () => {

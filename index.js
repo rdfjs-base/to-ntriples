@@ -1,10 +1,10 @@
-const blankNode = require('./lib/blankNode.js')
-const dataset = require('./lib/dataset.js')
-const defaultGraph = require('./lib/defaultGraph.js')
-const literal = require('./lib/literal.js')
-const namedNode = require('./lib/namedNode.js')
-const quad = require('./lib/quad.js')
-const variable = require('./lib/variable.js')
+import blankNode from './lib/blankNode.js'
+import dataset from './lib/dataset.js'
+import defaultGraph from './lib/defaultGraph.js'
+import literal from './lib/literal.js'
+import namedNode from './lib/namedNode.js'
+import quad from './lib/quad.js'
+import variable from './lib/variable.js'
 
 function toNT (term) {
   if (!term) {
@@ -43,4 +43,4 @@ function toNT (term) {
   throw new Error(`unknown termType ${term.termType}`)
 }
 
-module.exports = toNT
+export default toNT
