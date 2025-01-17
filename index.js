@@ -6,7 +6,7 @@ import namedNode from './lib/namedNode.js'
 import quad from './lib/quad.js'
 import variable from './lib/variable.js'
 
-function toNT (term) {
+function toNT (term, { nested } = {}) {
   if (!term) {
     return null
   }
@@ -29,7 +29,7 @@ function toNT (term) {
 
   // legacy quad support without .termType
   if (term.termType === 'Quad' || (term.subject && term.predicate && term.object && term.graph)) {
-    return quad(term, toNT)
+    return quad(term, { nested, toNT })
   }
 
   if (term.termType === 'Variable') {

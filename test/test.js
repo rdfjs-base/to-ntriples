@@ -114,6 +114,45 @@ describe('@rdfjs/to-ntriples', () => {
       strictEqual(toNT(quad), expected)
     })
 
+    it('should convert a Quad with a nested triple to a N-Triples string', () => {
+      const nestedSubject0 = rdf.blankNode()
+      const nestedPredicate0 = rdf.namedNode('http://example.org/predicate0')
+      const nestedObject0 = rdf.literal('object')
+      const nested0 = rdf.quad(nestedSubject0, nestedPredicate0, nestedObject0)
+      const nestedSubject1 = rdf.blankNode()
+      const nestedPredicate1 = rdf.namedNode('http://example.org/predicate1')
+      const nested1 = rdf.quad(nestedSubject1, nestedPredicate1, nested0)
+      const subject = rdf.blankNode()
+      const predicate = rdf.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies')
+      const graph = rdf.namedNode('http://example.org/graph')
+      const quad = rdf.quad(subject, predicate, nested1, graph)
+
+      const nestedExpected0 = `_:${nestedSubject0.value} <${nestedPredicate0.value}> "${nestedObject0.value}"`
+      const nestedExpected1 = `_:${nestedSubject1.value} <${nestedPredicate1.value}> <<( ${nestedExpected0} )>>`
+      const expected = `_:${subject.value} <${predicate.value}> <<( ${nestedExpected1} )>> <${graph.value}> .`
+
+      strictEqual(toNT(quad), expected)
+    })
+
+    it('should convert a Quad with a nested triple and DefaultGraph to a N-Triples string', () => {
+      const nestedSubject0 = rdf.blankNode()
+      const nestedPredicate0 = rdf.namedNode('http://example.org/predicate0')
+      const nestedObject0 = rdf.literal('object')
+      const nested0 = rdf.quad(nestedSubject0, nestedPredicate0, nestedObject0)
+      const nestedSubject1 = rdf.blankNode()
+      const nestedPredicate1 = rdf.namedNode('http://example.org/predicate1')
+      const nested1 = rdf.quad(nestedSubject1, nestedPredicate1, nested0)
+      const subject = rdf.blankNode()
+      const predicate = rdf.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies')
+      const quad = rdf.quad(subject, predicate, nested1)
+
+      const nestedExpected0 = `_:${nestedSubject0.value} <${nestedPredicate0.value}> "${nestedObject0.value}"`
+      const nestedExpected1 = `_:${nestedSubject1.value} <${nestedPredicate1.value}> <<( ${nestedExpected0} )>>`
+      const expected = `_:${subject.value} <${predicate.value}> <<( ${nestedExpected1} )>> .`
+
+      strictEqual(toNT(quad), expected)
+    })
+
     it('should convert a legacy Quad without .termType to a N-Triples string', () => {
       const subject = rdf.blankNode()
       const predicate = rdf.namedNode('http://example.org/predicate')
