@@ -70,6 +70,12 @@ describe('@rdfjs/to-ntriples', () => {
       strictEqual(toNT(term), `"${term.value}"@en`)
     })
 
+    it('should convert a Literal with language and direction to a N-Triples string', () => {
+      const term = rdf.literal('test', { direction: 'rtl', language: 'en' })
+
+      strictEqual(toNT(term), `"${term.value}"@en--rtl`)
+    })
+
     it('should convert a Literal with a non-string datatype to a N-Triples string', () => {
       const datatype = rdf.namedNode('http://example.org/datatype')
       const term = rdf.literal('test', datatype)
